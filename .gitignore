@@ -1,0 +1,6 @@
+# Ignorar el template de respaldo y archivos locales del SO/IDE
+kohost.themetags.com/
+.DS_Store
+Thumbs.db
+.vscode/
+*.log
