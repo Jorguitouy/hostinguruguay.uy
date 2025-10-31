@@ -1,0 +1,5 @@
+# robots.txt for https://www.hostinguruguay.uy/
+User-agent: *
+Disallow: /panel
+
+Sitemap: https://www.hostinguruguay.uy/sitemap.xml
