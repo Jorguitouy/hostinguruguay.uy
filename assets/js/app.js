@@ -26,6 +26,23 @@
 (function ($) {
   "use strict";
 
+  // Inyectar fuentes locales (Inter) en todas las páginas
+  (function injectLocalFonts() {
+    try {
+      var head = document.head || document.getElementsByTagName("head")[0];
+      if (!head) return;
+      var existing = document.querySelector('link[href$="/assets/css/inter-local.css"], link[href^="/assets/css/inter-local.css"], link[href="assets/css/inter-local.css"], link[href*="inter-local.css"]');
+      if (existing) return; // evitar duplicados
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      // Usar ruta absoluta para que funcione tanto en raíz como en subcarpetas
+      link.href = "/assets/css/inter-local.css";
+      head.appendChild(link);
+    } catch (e) {
+      // silencioso
+    }
+  })();
+
   // 1. preloader
   $(window).ready(function () {
     $("#preloader").delay(200).fadeOut("fade");
