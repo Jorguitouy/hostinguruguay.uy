@@ -1,0 +1,208 @@
+/*
+ * Modal Comparador - Hosting Uruguay
+ * Estilos responsive para tabla de comparación en modal
+ */
+
+/* Modal en desktop - sin cambios */
+@media (min-width: 768px) {
+    #comparadorModal .modal-dialog {
+        max-width: 95%;
+    }
+    
+    #comparadorModal .table-responsive-md {
+        overflow-x: auto;
+    }
+}
+
+/* Modal en móvil - diseño optimizado */
+@media (max-width: 767px) {
+    /* Modal ocupa casi toda la pantalla */
+    #comparadorModal .modal-dialog {
+        margin: 0.5rem;
+        max-width: calc(100% - 1rem);
+    }
+    
+    #comparadorModal .modal-body {
+        padding: 0.5rem;
+    }
+    
+    #comparadorModal .modal-header {
+        padding: 0.75rem 1rem;
+    }
+    
+    #comparadorModal .modal-title {
+        font-size: 1rem;
+    }
+    
+    /* Ocultar el contenedor de tabla normal en móvil */
+    #comparadorModal .compare-pricing-table {
+        display: none !important;
+    }
+    
+    /* Mostrar versión móvil */
+    #comparadorModal .mobile-comparison {
+        display: block !important;
+    }
+    
+    /* Tabs/pestañas para cambiar entre planes */
+    .mobile-comparison .nav-tabs {
+        border-bottom: 2px solid #dee2e6;
+        margin-bottom: 1rem;
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    .mobile-comparison .nav-tabs .nav-link {
+        border: none;
+        border-bottom: 3px solid transparent;
+        color: #6c757d;
+        font-weight: 600;
+        font-size: 0.9rem;
+        padding: 0.5rem 0.75rem;
+        flex: 1;
+        text-align: center;
+    }
+    
+    .mobile-comparison .nav-tabs .nav-link.active {
+        color: #0066cc;
+        border-bottom-color: #0066cc;
+        background-color: transparent;
+    }
+    
+    /* Contenido de cada plan */
+    .mobile-comparison .plan-content {
+        padding: 1rem 0.5rem;
+    }
+    
+    /* Header del plan */
+    .mobile-comparison .plan-header {
+        text-align: center;
+        padding: 1.5rem 1rem;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 0.5rem;
+        margin-bottom: 1.5rem;
+        color: white;
+    }
+    
+    .mobile-comparison .plan-header.plan-basico {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    .mobile-comparison .plan-header.plan-inicio {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    }
+    
+    .mobile-comparison .plan-header.plan-profesional {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    }
+    
+    .mobile-comparison .plan-name {
+        font-size: 1.25rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+    
+    .mobile-comparison .plan-price {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+    
+    .mobile-comparison .plan-price .currency {
+        font-size: 1.25rem;
+    }
+    
+    .mobile-comparison .plan-price .period {
+        font-size: 1rem;
+    }
+    
+    /* Lista de características */
+    .mobile-comparison .feature-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .mobile-comparison .feature-item {
+        padding: 1rem;
+        border-bottom: 1px solid #e9ecef;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .mobile-comparison .feature-item:last-child {
+        border-bottom: none;
+    }
+    
+    .mobile-comparison .feature-name {
+        font-weight: 500;
+        color: #495057;
+        font-size: 0.9rem;
+        flex: 1;
+        padding-right: 1rem;
+    }
+    
+    .mobile-comparison .feature-value {
+        font-weight: 600;
+        color: #212529;
+        font-size: 0.95rem;
+        text-align: right;
+    }
+    
+    .mobile-comparison .feature-value .text-success {
+        color: #28a745 !important;
+    }
+    
+    /* Secciones de características */
+    .mobile-comparison .feature-section {
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .mobile-comparison .feature-section-title {
+        font-size: 1rem;
+        font-weight: bold;
+        color: #212529;
+        padding: 0.75rem 1rem;
+        background-color: #f8f9fa;
+        border-left: 4px solid #0066cc;
+        margin-bottom: 0.5rem;
+    }
+    
+    /* Botón de acción en móvil */
+    .mobile-comparison .action-button {
+        margin-top: 1.5rem;
+        text-align: center;
+    }
+    
+    .mobile-comparison .btn-contratar {
+        width: 100%;
+        padding: 0.875rem;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+}
+
+/* Desktop - ocultar versión móvil */
+@media (min-width: 768px) {
+    #comparadorModal .mobile-comparison {
+        display: none !important;
+    }
+}
+
+/* Mejorar scroll horizontal en tablets */
+@media (min-width: 768px) and (max-width: 991px) {
+    #comparadorModal .modal-dialog {
+        max-width: 90%;
+    }
+    
+    #comparadorModal .table {
+        font-size: 0.85rem;
+    }
+    
+    #comparadorModal .table th,
+    #comparadorModal .table td {
+        padding: 0.5rem;
+    }
+}
