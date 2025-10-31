@@ -80,13 +80,26 @@
 
         // Extraer características de la tabla
         const rows = table.querySelectorAll('tbody tr');
-        let currentSection = '';
+        let currentSection = 'Especificaciones Básicas';
 
         rows.forEach(row => {
-            // Verificar si es una sección
+            // Verificar si es una sección (header con colspan)
+            const sectionHeader = row.querySelector('td[colspan]');
+            if (sectionHeader) {
+                currentSection = sectionHeader.textContent.trim();
+                return;
+            }
+
+            // Verificar si es un row con compare-header
             if (row.querySelector('.compare-header')) {
                 currentSection = row.querySelector('.compare-header').textContent.trim();
                 return;
+            }
+
+            // Verificar si es el último row con los precios repetidos
+            const compareTitle = row.querySelector('.compare-title');
+            if (!compareTitle) {
+                return; // Skip rows sin compare-title (como headers repetidos)
             }
 
             const cells = row.querySelectorAll('td');
@@ -94,12 +107,15 @@
                 const featureName = cells[0].textContent.trim();
                 
                 plans.forEach((plan, index) => {
-                    const value = cells[index + 1].innerHTML.trim();
-                    plan.features.push({
-                        section: currentSection,
-                        name: featureName,
-                        value: value
-                    });
+                    const valueCell = cells[index + 1];
+                    if (valueCell) {
+                        const value = valueCell.innerHTML.trim();
+                        plan.features.push({
+                            section: currentSection,
+                            name: featureName,
+                            value: value
+                        });
+                    }
                 });
             }
         });
@@ -169,17 +185,29 @@
     function createFeaturesList(features) {
         let html = '';
         let currentSection = '';
+        let hasOpenList = false;
 
         features.forEach(feature => {
             // Nueva sección
             if (feature.section && feature.section !== currentSection) {
-                if (currentSection) {
-                    html += '</ul>';
+                // Cerrar sección anterior
+                if (hasOpenList) {
+                    html += '</ul></div>';
+                    hasOpenList = false;
                 }
+                
                 currentSection = feature.section;
                 html += `<div class="feature-section">
                             <div class="feature-section-title">${currentSection}</div>
                             <ul class="feature-list">`;
+                hasOpenList = true;
+            } else if (!hasOpenList) {
+                // Primera característica sin sección definida
+                currentSection = 'Características';
+                html += `<div class="feature-section">
+                            <div class="feature-section-title">${currentSection}</div>
+                            <ul class="feature-list">`;
+                hasOpenList = true;
             }
 
             // Item de característica
@@ -191,7 +219,8 @@
             `;
         });
 
-        if (currentSection) {
+        // Cerrar última sección
+        if (hasOpenList) {
             html += '</ul></div>';
         }
 

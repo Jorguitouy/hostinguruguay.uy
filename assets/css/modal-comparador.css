@@ -24,6 +24,8 @@
     
     #comparadorModal .modal-body {
         padding: 0.5rem;
+        max-height: calc(100vh - 120px);
+        overflow-y: auto;
     }
     
     #comparadorModal .modal-header {
@@ -42,6 +44,12 @@
     /* Mostrar versión móvil */
     #comparadorModal .mobile-comparison {
         display: block !important;
+        padding-bottom: 3rem; /* Espacio adicional al final para ver todo */
+    }
+    
+    /* Contenido del plan */
+    .plan-content {
+        padding-bottom: 2rem; /* Más espacio al final de cada plan */
     }
     
     /* Tabs/pestañas para cambiar entre planes */
@@ -156,8 +164,14 @@
     
     /* Secciones de características */
     .mobile-comparison .feature-section {
-        margin-top: 1.5rem;
-        margin-bottom: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+    }
+    
+    .mobile-comparison .feature-section:last-child {
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
     }
     
     .mobile-comparison .feature-section-title {
