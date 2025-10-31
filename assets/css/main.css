@@ -17,7 +17,7 @@
  *			- Twitter: @seiyria
  *			- Github:  seiyria
  *		Rohit Kalkur
-/* Brand text logo styles */
+*/:root{
 .brand-text{font-weight:700;letter-spacing:.2px;text-decoration:none;display:inline-block;line-height:1}
 .header-nav .brand-text,.footer-1 .brand-text{color:#fff}
 .brand-text span{color:#00c9a7}
