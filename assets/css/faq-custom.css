@@ -1,0 +1,98 @@
+/*
+ * FAQ Custom Styles - Hosting Uruguay
+ * Layout de dos columnas para preguntas frecuentes
+ */
+
+/* Contenedor principal del FAQ */
+#faq .accordion.faq-wrap {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    column-gap: 2rem;
+}
+
+/* Items del accordion */
+#faq .accordion-item {
+    margin-bottom: 0;
+    height: fit-content;
+}
+
+/* Ajustes para el botón */
+#faq .accordion-button {
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 1rem 1.25rem;
+    transition: all 0.3s ease;
+}
+
+#faq .accordion-button:not(.collapsed) {
+    background-color: #f8f9fa;
+    color: #0066cc;
+    box-shadow: none;
+}
+
+#faq .accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(0, 102, 204, 0.15);
+}
+
+/* Cuerpo del accordion */
+#faq .accordion-body {
+    padding: 1rem 1.25rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Animación suave */
+#faq .accordion-collapse {
+    transition: height 0.3s ease;
+}
+
+/* Responsive: tablet */
+@media (max-width: 991px) {
+    #faq .accordion.faq-wrap {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+/* Responsive: móvil */
+@media (max-width: 767px) {
+    #faq .accordion-button {
+        font-size: 0.95rem;
+        padding: 0.875rem 1rem;
+    }
+    
+    #faq .accordion-body {
+        font-size: 0.9rem;
+        padding: 0.875rem 1rem;
+    }
+}
+
+/* Estilos adicionales para mejorar la visualización */
+#faq .accordion-item {
+    border: 1px solid #e0e0e0;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: box-shadow 0.3s ease;
+}
+
+#faq .accordion-item:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Icono del botón */
+#faq .accordion-button::after {
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-left: auto;
+    background-size: 1.25rem;
+}
+
+/* Primera pregunta que está abierta por defecto */
+#faq .accordion-item:first-child {
+    grid-column: span 1;
+}
