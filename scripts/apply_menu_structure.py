@@ -10,6 +10,10 @@ from pathlib import Path
 
 # Páginas que necesitan la estructura de menú actualizada
 TARGET_FILES = [
+    'index.html',
+    'buscador-de-dominios.html',
+    'registro-de-dominios.html',
+    'transferencia-de-dominios.html',
     # Hosting pages
     'vps-hosting.html',
     'cloud-hosting.html',
